@@ -3,6 +3,8 @@ package state
 import utils.{Commands, Printer}
 import wasp.{Nest, WaspNest}
 
+// TODO: MOVE INTO SEPARATE FILES
+
 sealed trait State {
   def run(): Unit
 }
@@ -26,7 +28,6 @@ class Start(context: Context) extends StateWithContext(context) {
   override def this() = this(new Context)
 }
 
-
 class Play(nest: Nest, context: Context, auto: Boolean = false) extends StateWithContext(context) {
   def message: String = "Enter fire or f to shoot"
 
@@ -38,6 +39,7 @@ class Play(nest: Nest, context: Context, auto: Boolean = false) extends StateWit
     Thread.sleep(1000)
     nest.print()
     val userInput = if (auto) "f" else commands.getInput
+    // TODO: REPETITIVE
     userInput match {
       case "auto" | "a" => {
         val nextNest = nest.fire
@@ -78,7 +80,7 @@ class GameEnd extends State {
 
 class Winner extends State {
   override def run(): Unit = {
-    println("Good Going")
+    println("Good Going you won")
   }
 }
 

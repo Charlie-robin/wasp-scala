@@ -9,7 +9,6 @@ class Context {
     state match
       case s: Play => currentState = Option(s)
       case _ => Nil
-
     state.run()
   }
 

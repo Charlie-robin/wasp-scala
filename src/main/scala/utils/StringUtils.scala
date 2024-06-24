@@ -1,9 +1,11 @@
 package utils
 
 object StringUtils {
-  def centre(input: String, totalLength: Int): String = {
-    val totalPadding = totalLength - input.length
-    val padding = " ".repeat(totalPadding / 2)
-    padding + input + padding
+  //TODO: FIX THIS
+  def centre(input: String): String = {
+    //    val totalPadding = 200 - input.length
+    //    val padding = " ".repeat(totalPadding / 2)
+    //    padding + input + padding
+    input
   }
 }

@@ -20,11 +20,11 @@ object Wasp {
 }
 
 abstract class Wasp(protected val hitPoints: Int, protected val damage: Int) {
+  def hit: Wasp
+
   def isAlive: Boolean = hitPoints > 0
 
   protected def nextHitPoints: Int = Math.max(0, hitPoints - damage)
-
-  def hit: Wasp
 
   protected def getHitPoints: String = hitPoints match
     case hp if hitPoints <= 10 => Console.RED + f"$hp%02d" + Console.RESET

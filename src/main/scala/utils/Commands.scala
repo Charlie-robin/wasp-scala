@@ -8,7 +8,6 @@ sealed trait InputReader {
 }
 
 class Commands(message : String, inputPredicate : (String) => Boolean) extends InputReader {
-
   @tailrec
   final def getInput: String = {
     println(message)

@@ -24,14 +24,13 @@ object Printer {
       case d: Drone => (acc(0), acc(1), acc(2) + d)
     })
 
-    val maxLength = Set(q.length, w.length, d.length).max
 
     println("\n".repeat(2))
-    println(StringUtils.centre(q, maxLength))
+    println(StringUtils.centre(q))
     println()
-    println(StringUtils.centre(d, maxLength))
+    println(StringUtils.centre(d))
     println()
-    println(StringUtils.centre(w, maxLength))
+    println(StringUtils.centre(w))
     println("\n".repeat(2))
   }
 }
