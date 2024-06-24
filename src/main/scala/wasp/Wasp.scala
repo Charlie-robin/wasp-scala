@@ -26,7 +26,12 @@ abstract class Wasp(protected val hitPoints: Int, protected val damage: Int) {
 
   def hit: Wasp
 
-  override def toString: String = s"[${getClass.getSimpleName}:$hitPoints]"
+  protected def getHitPoints: String = hitPoints match
+    case hp if hitPoints <= 10 => Console.RED + f"$hp%02d" + Console.RESET
+    case hp if hitPoints <= 30 => Console.YELLOW + f"$hp%02d" + Console.RESET
+    case hp => f"$hp%02d"
+
+  override def toString: String = s"[${getClass.getSimpleName}:${getHitPoints}]"
 }
 
 class Worker(hitPoints: Int, damage: Int) extends Wasp(hitPoints, damage) {
