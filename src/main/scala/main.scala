@@ -1,8 +1,7 @@
-import state.{Context, Play}
+import state.Start
 
 
 @main
 def main(): Unit = {
-  val context = new Context()
-  context.changeState(new Play(context))
+  new Start().run()
 }
